@@ -1,0 +1,46 @@
+﻿
+@model Calculator
+@{
+    ViewBag.Title = "Calculator";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form asp-action="Index" method = "post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="firstInput">
+                1st Number:
+            </label>
+            <input asp-for="firstInput" />
+        </div>
+        <div>
+            <label asp-for="secondInput">
+                2nd Number:
+            </label>
+            <input asp-for="secondInput" />
+        </div>
+        <div>
+            <label>
+                Result
+            </label>
+            <input value="@ViewBag.Result.ToString()" readonly />
+        </div>
+
+        <button type="submit" class = "btn btn-info" id="add" value="add" name="type">+</button>
+        <button type="submit" class = "btn btn-info" id="minus" value="minus" name="type">-</button>
+        <button type="submit" class = "btn btn-info" id="divide" value="divide" name="type">/</button>
+        <button type="submit" class = "btn btn-info" id="multiply" value="multiply" name="type">*</button>
+
+
+        <a asp-action="Index">Clear</a>  
+    </form>
+</body>
+</html>
